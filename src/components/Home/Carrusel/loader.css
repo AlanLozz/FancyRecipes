@@ -1,0 +1,125 @@
+.card-loader {
+    width: 226px;
+    height: 289px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, .2);
+    padding: 1rem;
+}
+
+.card-loader-image{
+    width: 180px;
+    height: 120px;
+    border-radius: 100%;
+}
+
+.card-loader-title {
+    margin-top: 20px;
+    width: 170px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.card-loader hr{
+    background: #58657E;
+    color: #58657E;
+}
+
+.line {
+    border: solid .01rem #58657E;
+    width: 80%;
+}
+
+.card-loader-description {
+    margin-top: 1rem;
+    width: 180px;
+    height: 70px;
+    border-radius: 10px;
+}
+
+.card-loader *{
+    background: linear-gradient(
+        120deg,
+        #e5e5e5 30%,
+        #f0f0f0 38%,
+        #f0f0f0 40%,
+        #e5e5e5 48%
+    );
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: load 1s infinite;
+}
+
+.loader-title {
+    width: 170px;
+    height: 35px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, .2);
+    margin-bottom: .5rem;
+    background: linear-gradient(
+        120deg,
+        #e5e5e5 30%,
+        #f0f0f0 38%,
+        #f0f0f0 40%,
+        #e5e5e5 48%
+    );
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: load 1s infinite;
+}
+
+.carrusel {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+}
+
+.carrusel-previous {
+    width: 4%;
+    padding: .1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carrusel-next {
+    width: 4%;
+    padding: .1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carrusel-container{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    overflow-y: hidden;
+}
+
+.carrusel-container::-webkit-scrollbar {
+    display: none;
+}
+
+.carrusel-item {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.carrusel-button {
+    background: none;
+    border: none;
+}
+
+@keyframes load {
+    100%{
+        background-position: -100% 0;
+    }
+}
+
