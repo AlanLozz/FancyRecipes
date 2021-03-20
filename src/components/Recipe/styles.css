@@ -1,0 +1,87 @@
+.recipe-container {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.recipe-aside-container {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.recipe-aside-container img {
+    width: 80%;
+    height: auto;
+}
+
+.recipe-aside-loader-title {
+    width: 70%;
+    height: 40px;
+    margin-bottom: 1rem;
+    border-radius: 20px;
+    background: linear-gradient(
+        120deg,
+        #e5e5e5 30%,
+        #f0f0f0 38%,
+        #f0f0f0 40%,
+        #e5e5e5 48%
+    );
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: load 1s infinite;
+    animation: load 1s infinite;
+}
+
+.recipe-aside-loader-image {
+    width: 225px;
+    height: 272px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    background: linear-gradient(
+        120deg,
+        #e5e5e5 30%,
+        #f0f0f0 38%,
+        #f0f0f0 40%,
+        #e5e5e5 48%
+    );
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: load 1s infinite;
+}
+
+.recipe-aside-button {
+    background: none;
+    border: none;
+}
+
+.recipe-content-container {
+    width: 80%;
+}
+
+.recipe-content-loader-container {
+    width: 70%;
+    height: 70vh;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    background: linear-gradient(
+        120deg,
+        #e5e5e5 30%,
+        #f0f0f0 38%,
+        #f0f0f0 40%,
+        #e5e5e5 48%
+    );
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: load 1s infinite;
+}
+
+@keyframes load {
+    100%{
+        background-position: -100% 0;
+    }
+}

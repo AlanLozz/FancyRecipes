@@ -1,0 +1,68 @@
+.card-meal{
+    width: 226px;
+    height: 269px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, .2);
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.card-meal-image img{
+    width: 100%;
+    height: auto;
+}
+
+h4.card-meal-title {
+    font-size: 34px;
+    color: #B6000E;
+}
+
+.carrusel {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+}
+
+.carrusel-previous {
+    width: 4%;
+    padding: .1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carrusel-next {
+    width: 4%;
+    padding: .1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carrusel-container{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    overflow-y: hidden;
+}
+
+.carrusel-container::-webkit-scrollbar {
+    display: none;
+}
+
+.carrusel-item {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.carrusel-button {
+    background: none;
+    border: none;
+}

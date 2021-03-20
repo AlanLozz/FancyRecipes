@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'ReemKufi';
+    src: url('./assets/fonts/font.ttf');
+}
+
+body {
+    font-family: 'ReemKufi';
+    background: #F7F7F7;
+}
