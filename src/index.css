@@ -7,3 +7,11 @@ body {
     font-family: 'ReemKufi';
     background: #F7F7F7;
 }
+
+.bg-fancy {
+    background: #FF8E09;
+}
+
+.color-fancy {
+    color: #FF8E09;
+}

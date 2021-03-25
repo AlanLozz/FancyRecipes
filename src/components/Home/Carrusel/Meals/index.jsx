@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
-import Left from '../../../assets/icons/ArrowLeft.svg';
-import Right from '../../../assets/icons/ArrowRight.svg';
-import './styles.css';
+import Left from '../../../../assets/icons/ArrowLeft.svg';
+import Right from '../../../../assets/icons/ArrowRight.svg';
+import '../styles.css';
 
 const Index = ({ categories, title }) => {
     const carrusel = document.getElementById(`slide${title}`);
@@ -28,7 +28,7 @@ const Index = ({ categories, title }) => {
     },[position])
 
     return (
-        <div>
+        <div className="mb-4">
             <h2>{title}</h2>
             <div className="carrusel">
                 <div className="carrusel-previous">
