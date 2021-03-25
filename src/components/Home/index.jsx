@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Carrusel from './Carrusel/Meals';
 import Coctels from './Coctels';
 import Loader from './Carrusel/Loader';
 
 const Index = () => {
+    const history = useHistory();
 
     const [categories, setCategories] = useState(null);
 
@@ -12,6 +14,16 @@ const Index = () => {
             .then(res => res.json())
             .then(res => setCategories(res.categories));
     }, []);
+
+    const getRandom = () => {
+        let temp = Math.floor(Math.random() * 2);
+        if (temp == 0) {
+            history.push("/recipe/0/true")
+        } else {
+            history.push("/coctel/0/true")
+        }
+    }
+
     return (
         <>
             <div className="row">
@@ -21,9 +33,9 @@ const Index = () => {
                             Use the new feature!
                         </h1>
                         <p className="lead">Don't know what to prepare?</p>
-                        <hr className="my-4"/>
+                        <hr className="my-4" />
                         <p>Use the random tool to find an awesome coctel or recipe</p>
-                        <a href="/random" className="btn btn-primary btn-lg">Let's Go!</a>
+                        <button className="btn btn-primary btn-lg" onClick={e=> getRandom()}>Get Random Meal or Coctel</button>
                     </div>
                 </div>
             </div>

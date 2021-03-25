@@ -25,7 +25,7 @@ const Index = () => {
                     !recipes ? (<div class="spinner-grow text-primary" role="status"><span class="sr-only">Loading...</span></div>) : (
                         recipes.map((r, i) => {
                             return (
-                                <div className="card-recipe" key={i} onClick={e => history.push(`/recipe/${r.idMeal}`)}>
+                                <div className="card-recipe" key={i} onClick={e => history.push(`/recipe/${r.idMeal}/false`)}>
                                     <div className="card-recipe-image">
                                         <img src={r.strMealThumb} alt={r.strMeal} />
                                     </div>

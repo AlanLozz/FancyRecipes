@@ -21,7 +21,7 @@ const Index = () => {
                     data ?
                         data.map((d, i) => {
                             return (
-                                <div className="card-recipe" key={i} onClick={e=> history.push(`/Coctel/${d.idDrink}`)}>
+                                <div className="card-recipe" key={i} onClick={e=> history.push(`/Coctel/${d.idDrink}/false`)}>
                                     <div className="card-recipe-image">
                                         <img src={d.strDrinkThumb} alt={d.strDrink} />
                                     </div>

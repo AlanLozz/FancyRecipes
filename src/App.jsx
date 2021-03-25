@@ -16,9 +16,9 @@ const App = () => {
           <Switch>
             <Route path="/" component={Home} exact/>
             <Route path="/recipelist/:name" component={RecipeList} />
-            <Route path="/recipe/:id" component={Recipe} />
+            <Route path="/recipe/:id/:random" component={Recipe} />
             <Route path="/coctellist/:type/:id" component={CoctelList} />
-            <Route path="/coctel/:id" component={Coctel} />
+            <Route path="/coctel/:id/:random" component={Coctel} />
             <Route component={Error} />
           </Switch>
         </Router>

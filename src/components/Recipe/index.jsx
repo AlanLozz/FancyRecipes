@@ -3,14 +3,21 @@ import { useParams } from 'react-router-dom';
 import './styles.css';
 
 const Index = () => {
-    const { id } = useParams();
+    const { id, random } = useParams();
     const [data, setData] = useState(null);
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`;
+    const rand = "https://www.themealdb.com/api/json/v1/1/random.php";
 
     useEffect(() => {
-        fetch(url)
-            .then(res => res.json())
-            .then(res => setData(res.meals[0]));
+        if(random){
+            fetch(rand)
+                .then(res => res.json())
+                .then(res => setData(res.meals[0]));
+        } else {
+            fetch(url)
+                .then(res => res.json())
+                .then(res => setData(res.meals[0]));
+        }
     }, []);
 
     return (
