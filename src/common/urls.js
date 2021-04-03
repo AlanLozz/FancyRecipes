@@ -1,0 +1,1 @@
+export default api_url = "https://fancy-recipes-api.herokuapp.com/";

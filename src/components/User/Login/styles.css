@@ -1,0 +1,80 @@
+.card-login {
+    width: 100%;
+    height: 80vh;
+    background-color: #f043378a;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+.card-login-form-container {
+    width: 60%;
+    color: white;
+    padding: 30px ;
+}
+
+.card-login-form-container h1 {
+    text-align: center;
+}
+
+.card-login-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.form-fancy-input {
+    display: block;
+    width: 100%;
+    border-radius: 7px;
+    padding: 2px;
+    border: none;
+    height: 35px;
+    outline: none;
+    caret-color: #b91400;
+    background: rgba( 255, 255, 255, .5);
+}
+
+.is-invalid {
+    border: 1.5px solid red;
+}
+
+.is-valid {
+    border: 1.5px solid green;
+}
+
+.hidden {
+    display: none;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+.submit-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-submit {
+    background: #BA2D65;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 4px 3rem;
+    font-size: 24px;
+}
+
+.forgot-pass {
+    color: white;
+    font-size: 19px;
+    text-decoration: none;
+}
+
+.forgot-pass:hover {
+    color: white;
+    text-decoration: none;
+}

@@ -5,6 +5,7 @@ import Recipe from './components/Recipe';
 import Error from './components/Error';
 import CoctelList from './components/CoctelList';
 import Coctel from './components/Coctel';
+import Login from './components/User/Login';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
             <Route path="/recipe/:id/:random" component={Recipe} />
             <Route path="/coctellist/:type/:id" component={CoctelList} />
             <Route path="/coctel/:id/:random" component={Coctel} />
+            <Route path="/login" component={Login} />
             <Route component={Error} />
           </Switch>
         </Router>
