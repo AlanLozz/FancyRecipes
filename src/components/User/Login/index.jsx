@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import Image from '../../../assets/images/login_image.png';
 import { AppContext } from '../../Context/AppContext';
 import { LoginUser } from '../../../helpers/User';
+import jwt from 'jwt-decode';
 import Swal from 'sweetalert2';
 import './styles.css';
 
@@ -36,7 +37,7 @@ const Index = () => {
     const passwordChange = e => {
         if (passwordValue.length <= 16 || passwordValue === "") {
             setPasswordValue(e.target.value);
-            if (passwordValue.length < 8) {
+            if (passwordValue.length < 1) {
                 setPasswordClass("form-fancy-input is-invalid");
                 setPasswordError("error");
                 setPasswordValid(false);
@@ -57,7 +58,8 @@ const Index = () => {
             };
             const res = await LoginUser(user);
             if(res.data.ok){
-                console.log("works");
+                console.log(jwt(res.data.token));
+                console.log(context);
             } else {
                 Swal.fire({
                     title: "Error",

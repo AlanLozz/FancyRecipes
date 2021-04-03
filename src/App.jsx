@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import Navbar from './components/common/Navbar';
 import Home from './components/Home';
 import RecipeList from './components/RecipeList';
@@ -11,20 +11,20 @@ import { AppContext } from './components/Context/AppContext';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 const App = () => {
-  const [userContext, provider] = useState({});
-  const [errorContainer, setError] = useState({});
+  let initialState = {
+    isAuthenticated: false,
+    user: {},
+    errors: {}
+  };
+
+
   return (
     <>
       <Navbar />
       <div className="container-fluid mt-3">
         <Router>
           <AppContext.Provider
-            value= {{
-              userContext,
-              provider,
-              errorContainer, 
-              setError
-            }}
+            value= {""}
           >
             <Switch>
               <Route path="/" component={Home} exact />
