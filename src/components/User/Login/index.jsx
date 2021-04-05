@@ -1,15 +1,15 @@
-import React, { useState, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState, useContext, useEffect } from 'react';
 import Image from '../../../assets/images/login_image.png';
-import { AppContext } from '../../Context/AppContext';
-import { LoginUser } from '../../../helpers/User';
-import jwt from 'jwt-decode';
-import Swal from 'sweetalert2';
+import UserContext from '../../Context/User/UserContext';
 import './styles.css';
 
 const Index = () => {
-    const history = useHistory();
-    const context = useContext(AppContext);
+    const { logUser, token } = useContext(UserContext);
+
+    useEffect(()=> {
+
+    },[]);
+
     const [emailValue, setEmailValue] = useState("");
     const [emailError, setEmailError] = useState("hidden");
     const [emailClass, setEmailClass] = useState("form-fancy-input");
@@ -52,24 +52,11 @@ const Index = () => {
     const HandleSubmit = async e => {
         e.preventDefault();
         if (emailValid && passwordValid && emailValue !== "" && passwordValue !== "") {
-            const user = {
+            const userData = {
                 email: emailValue,
                 password: passwordValue
             };
-            const res = await LoginUser(user);
-            if(res.data.ok){
-                console.log(jwt(res.data.token));
-                console.log(context);
-            } else {
-                Swal.fire({
-                    title: "Error",
-                    icon: "error",
-                    text: res.data.err.message,
-                    confirmButtonText: "Ok",
-                    confirmButtonColor: "red",
-                    timer: 2000
-                })
-            }
+            logUser(userData);
         } else {
             if (emailValue === "") {
                 setEmailClass("form-fancy-input is-invalid");

@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react';
+import React from 'react';
 import Navbar from './components/common/Navbar';
 import Home from './components/Home';
 import RecipeList from './components/RecipeList';
@@ -7,26 +7,17 @@ import Error from './components/Error';
 import CoctelList from './components/CoctelList';
 import Coctel from './components/Coctel';
 import Login from './components/User/Login';
-import { AppContext } from './components/Context/AppContext';
+import UserState from './components/Context/User/UserState';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 const App = () => {
-  let initialState = {
-    isAuthenticated: false,
-    user: {},
-    errors: {}
-  };
-
-
   return (
     <>
-      <Navbar />
-      <div className="container-fluid mt-3">
+      <UserState>
+        <Navbar />
         <Router>
-          <AppContext.Provider
-            value= {""}
-          >
-            <Switch>
+          <Switch>
+            <div className="container-fluid mt-3">
               <Route path="/" component={Home} exact />
               <Route path="/recipelist/:name" component={RecipeList} />
               <Route path="/recipe/:id/:random" component={Recipe} />
@@ -34,10 +25,10 @@ const App = () => {
               <Route path="/coctel/:id/:random" component={Coctel} />
               <Route path="/login" component={Login} />
               <Route component={Error} />
-            </Switch>
-          </AppContext.Provider>
+            </div>
+          </Switch>
         </Router>
-      </div>
+      </UserState>
     </>
   );
 }
