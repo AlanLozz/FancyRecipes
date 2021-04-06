@@ -3,16 +3,16 @@ import UserContext from '../../Context/User/UserContext';
 import './styles.css';
 
 function Index() {
-    const { isLogged, token, outUser } = useContext(UserContext);
+    const { isLogged, outUser } = useContext(UserContext);
     const [navState, setNavState] = useState(false);
 
     useEffect(() => {
-        if(isLogged && token.length > 0){
+        if(localStorage.isLogged){
             setNavState(true);
         } else {
             setNavState(false);
         }
-    },[isLogged, token]);
+    },[isLogged]);
 
     return (
         <nav className="navbar navbar-expand-lg sticky-top navbar-light bg-white shadow-sm">

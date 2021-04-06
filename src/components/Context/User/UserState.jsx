@@ -2,13 +2,12 @@ import React, { useReducer, useEffect } from 'react';
 import UserReducer from './UserReducer';
 import UserContext from './UserContext';
 import Swal from 'sweetalert2';
-import { LoginUser, RegisterUser } from '../../../helpers/User';
+import { LoginUser, RegisterUser, decodeToken, IsLogged } from '../../../helpers/User';
 
 import { LOGIN_USER, LOGOUT_USER, REGISTER_USER } from '../types';
 
 const UserState = props => {
     const initialState = {
-        user: {},
         token: '',
         isLogged: false
     };
@@ -17,11 +16,12 @@ const UserState = props => {
 
     const logUser = async userData => {
         const res = await LoginUser(userData);
-        if(res.data.ok){
+        if (res.data.ok) {
+            localStorage.setItem("isLogged", res.data.ok);
+            localStorage.setItem("jwt", res.data.token);
             dispatch({
                 type: LOGIN_USER,
                 payload: {
-                    userData: res.data.usuario,
                     token: res.data.token,
                     isLogged: res.data.ok,
                 }
@@ -30,7 +30,6 @@ const UserState = props => {
             dispatch({
                 type: LOGOUT_USER,
                 payload: {
-                    userData: {},
                     token: '',
                     isLogged: res.data.ok
                 }
@@ -46,19 +45,20 @@ const UserState = props => {
     };
 
     const outUser = () => {
+        localStorage.removeItem("isLogged");
+        localStorage.removeItem("jwt");
         dispatch({
             type: LOGOUT_USER,
-                payload: {
-                    userData: {},
-                    token: '',
-                    isLogged: false
-                }
+            payload: {
+                token: '',
+                isLogged: false
+            }
         })
     };
 
     const regUser = userData => {
         const response = RegisterUser(userData);
-        if(response.data.err){
+        if (response.data.err) {
             Swal.fire({
                 title: "Error",
                 icon: "error",

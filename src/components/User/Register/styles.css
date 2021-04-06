@@ -1,0 +1,30 @@
+.card-registro {
+    width: 100%;
+    height: fit-content;
+    background: #87A2E9;
+    overflow: hidden;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.card-registro-image img {
+    width: 100%;
+    height: auto;
+}
+
+.card-registro-container {
+    width: 60%;
+    padding: 15px;
+    color: white;
+}
+
+.card-registro-title {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.bg-purple {
+    background: #5574B6;
+}

@@ -7,7 +7,6 @@ export default (state, action) => {
         case LOGIN_USER:
             return {
                 ...state,
-                user: payload.userData,
                 token: payload.token,
                 isLogged: payload.isLogged
             }
@@ -15,7 +14,6 @@ export default (state, action) => {
         case LOGOUT_USER:
             return {
                 ...state,
-                user: payload.userData,
                 token: payload.token,
                 isLogged: payload.isLogged
             }

@@ -1,13 +1,18 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { useHistory } from 'react-router-dom'
 import Image from '../../../assets/images/login_image.png';
 import UserContext from '../../Context/User/UserContext';
 import './styles.css';
 
 const Index = () => {
-    const { logUser, token } = useContext(UserContext);
+    const history = useHistory();
+    const { logUser, isLogged } = useContext(UserContext);
 
     useEffect(()=> {
-
+        console.log("Entra al useEffect en login");
+        if(localStorage.getItem("isLogged")){
+            history.push("/profile");
+        }
     },[]);
 
     const [emailValue, setEmailValue] = useState("");
