@@ -9,6 +9,7 @@ import Coctel from './components/Coctel';
 import Login from './components/User/Login';
 import Register from './components/User/Register';
 import UserState from './components/Context/User/UserState';
+import Profile from './components/User/Profile';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
               <Route path="/coctel/:id/:random" component={Coctel} />
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
+              <Route path="/profile" component={Profile} />
               <Route path="*" component={Error} />
             </Switch>
           </div>
