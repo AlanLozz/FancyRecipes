@@ -56,16 +56,20 @@ const UserState = props => {
         })
     };
 
-    const regUser = userData => {
-        const response = RegisterUser(userData);
-        if (response.data.err) {
+    const regUser = async userData => {
+        const response = await RegisterUser(userData);
+        console.log(response);
+        if (response.data.ok) {
+            return true;
+        } else {
             Swal.fire({
                 title: "Error",
                 icon: "error",
                 text: response.data.err.message,
                 confirmButtonText: "Ok",
                 confirmButtonColor: "green"
-            })
+            });
+            return false;
         }
     };
 
@@ -75,6 +79,7 @@ const UserState = props => {
             token: state.token,
             isLogged: state.isLogged,
             logUser,
+            regUser,
             outUser
         }} >
             {props.children}

@@ -13,7 +13,7 @@ const Index = () => {
         if(localStorage.getItem("isLogged")){
             history.push("/profile");
         }
-    },[]);
+    },[isLogged]);
 
     const [emailValue, setEmailValue] = useState("");
     const [emailError, setEmailError] = useState("hidden");
@@ -42,7 +42,7 @@ const Index = () => {
     const passwordChange = e => {
         if (passwordValue.length <= 16 || passwordValue === "") {
             setPasswordValue(e.target.value);
-            if (passwordValue.length < 1) {
+            if (passwordValue.length < 8) {
                 setPasswordClass("form-fancy-input is-invalid");
                 setPasswordError("error");
                 setPasswordValid(false);
