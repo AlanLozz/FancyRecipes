@@ -41,3 +41,12 @@ export const IsLogged = () => {
 export const decodeToken = token => {
     return token ? jwt(token) : null;
 };
+
+export const genCode = async email => {
+    const response = await axios.post(`${url_in_use}api/user/forgotPassword/setCode`,{email}, {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    return response;
+};

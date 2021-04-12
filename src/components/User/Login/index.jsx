@@ -98,7 +98,7 @@ const Index = () => {
                             </div>
                         </form>
                         <div className="row justify-content-center">
-                            <a href="" className="forgot-pass">Forgot password?</a>
+                            <a href="/forgot" className="forgot-pass">Forgot password?</a>
                         </div>
                         <div className="row justify-content-center mt-4">
                             <a href="/register" className="forgot-pass">Don't have account?</a>

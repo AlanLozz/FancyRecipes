@@ -111,16 +111,24 @@ const Index = () => {
                 email: emailValue,
                 password: passwordValue
             };
-            const isSuccess = await regUser(user);
-            if(isSuccess){
+            const response = await regUser(user);
+            if(response.data.ok){
                 history.push("/login");
                 Swal.fire({
                     icon: 'success',
                     title: "¡You has been registered successfully!",
-                    text: "Please, login",
+                    text: "Now, you can sign in",
                     confirmButtonColor:'green',
                     confirmButtonText:"ok"
                 });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: "¡Error!",
+                    text: response.data.err.message,
+                    confirmButtonColor:'red',
+                    confirmButtonText:"ok"
+                });    
             }
         } else {
             Swal.fire({

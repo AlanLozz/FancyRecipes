@@ -1,0 +1,16 @@
+.input-code-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.input-code {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: none;
+    outline: none;
+    background-color: #faa340;
+    color: white;
+    padding: 5px 0;
+}

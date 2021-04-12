@@ -10,6 +10,7 @@ import Login from './components/User/Login';
 import Register from './components/User/Register';
 import UserState from './components/Context/User/UserState';
 import Profile from './components/User/Profile';
+import Forgot from './components/User/Forgot';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
               <Route path="/profile" component={Profile} />
+              <Route path="/forgot" component={Forgot} />
               <Route path="*" component={Error} />
             </Switch>
           </div>
