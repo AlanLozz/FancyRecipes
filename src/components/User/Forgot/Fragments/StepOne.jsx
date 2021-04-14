@@ -57,7 +57,7 @@ const StepOne = ({ emailValue, setEmailValue, setStep }) => {
     };
 
     return (
-        <>
+        <div className="col">
             <span className="text-muted mb-2">
                 Insert your email to recover your password
             </span>
@@ -67,7 +67,7 @@ const StepOne = ({ emailValue, setEmailValue, setStep }) => {
                 <span className={emailError}>Insert a valid email</span>
             </div>
             <button className={`btn btn-info mt-4 float-right ${isValidEmail ? '' : 'disabled'}`} onClick={e => handleClick()}>Next</button>
-        </>
+        </div>
     )
 }
 

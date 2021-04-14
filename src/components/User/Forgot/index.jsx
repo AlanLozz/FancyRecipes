@@ -10,7 +10,7 @@ const Index = () => {
     return (
         <>
             <div className="row justify-content-center align-items-center" style={{height:"70vh"}}>
-                <div className="col-md-8">
+                <div className="col-md-6">
                     <div className="card shadow">
                         <div className="card-header">
                             <div className="progress" style={{ height: "2px" }}>
@@ -24,8 +24,8 @@ const Index = () => {
                                 <div className="row">
                                     {
                                         step === 0 ? <StepOne emailValue={emailValue} setEmailValue={setEmailValue} setStep={setStep} /> :
-                                        step === 1 ? <StepTwo /> :
-                                        step === 2 ? <StepThree /> :
+                                        step === 1 ? <StepTwo email={emailValue} setStep={setStep} /> :
+                                        step === 2 ? <StepThree email={emailValue} /> :
                                         undefined
                                     }
                                 </div>

@@ -50,3 +50,13 @@ export const genCode = async email => {
     });
     return response;
 };
+
+export const verifyCode = async (email, code) => {
+    const response = await axios.post(`${url_in_use}api/user/forgotPassword/verifyCode`, { email, code }, {headers: {"Content-Type": "application/json"}});
+    return response;
+};
+
+export const changePassword = async (email, password) => {
+    const response = await axios.post(`${url_in_use}api/user/forgotPassword/changePassword`, {email, password}, {headers: {"Content-Type": "application/json"}});
+    return response;
+}; 
