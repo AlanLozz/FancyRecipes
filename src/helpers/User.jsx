@@ -2,7 +2,7 @@ import axios from 'axios';
 import { api_url, dev_url } from '../common/urls';
 import jwt from 'jwt-decode';
 
-const url_in_use = api_url;
+const url_in_use = dev_url;
 
 export const LoginUser = async user => {
     const { email, password } = user;
@@ -60,3 +60,10 @@ export const changePassword = async (email, password) => {
     const response = await axios.post(`${url_in_use}api/user/forgotPassword/changePassword`, {email, password}, {headers: {"Content-Type": "application/json"}});
     return response;
 }; 
+
+export const getMealsByUserId = async () => {
+    const UserId = localStorage.getItem("UserId");
+    const Token = localStorage.getItem("jwt");
+    const response = await axios.get(`${url_in_use}api/meal/getmeals/${UserId}`,{ headers: { "Authorization": Token}});
+    return response;
+};

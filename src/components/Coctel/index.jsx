@@ -9,7 +9,7 @@ const Index = () => {
     console.log(drink);
 
     useEffect(() => {
-        if(random){
+        if(random == "true"){
             fetch(rand)
             .then(res => res.json())
             .then(res => setDrink(res.drinks[0]));

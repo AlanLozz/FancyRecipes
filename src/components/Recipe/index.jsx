@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { getMealsByUserId } from '../../helpers/User';
+import { addRecipe } from '../../helpers/Meals';
+import Swal from 'sweetalert2';
 import './styles.css';
 
 const Index = () => {
     const { id, random } = useParams();
     const [data, setData] = useState(null);
+    const [buttonState, setButtonState] = useState(false);
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`;
     const rand = "https://www.themealdb.com/api/json/v1/1/random.php";
 
     useEffect(() => {
-        if(random){
+        //Verifica si se tiene que buscar una receta random
+        if(random == "true"){
             fetch(rand)
                 .then(res => res.json())
                 .then(res => setData(res.meals[0]));
@@ -18,7 +23,43 @@ const Index = () => {
                 .then(res => res.json())
                 .then(res => setData(res.meals[0]));
         }
+        // Verificar si la receta ya existe para el usuario
+        if(localStorage.getItem("isLogged")){
+            getMealsByUserId()
+                .then(response => {
+                    let meals = response.data;
+                    if(meals.find(meal => meal.id === id)){
+                        setButtonState(true);
+                    }
+                })
+        }
     }, []);
+
+    const handleButton = () => {
+        if(!buttonState){
+            addRecipe(id, data.strMeal, "Recipe")
+                .then( response => {
+                    if (response.data.ok) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: '¡Saved Successfully!'
+                        });
+                        setButtonState(true);
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: '¡Error!',
+                            text: response.data.err.message
+                        })
+                    }
+                })
+        } else {
+            Swal.fire({
+                icon: 'info',
+                title: '¡You already have it in your saved recipes!'
+            });
+        }
+    };
 
     return (
         <div className="container">
@@ -30,11 +71,8 @@ const Index = () => {
                     {
                         !data ? <div className="recipe-aside-loader-image"></div> : <img src={data.strMealThumb} alt="" className="recipe-image" />
                     }
-                    <button className="recipe-aside-button mt-4">
-                        Add to Favorites
-                    </button>
-                    <button className="recipe-aside-button mt-4">
-                        Save
+                    <button className="recipe-aside-button mt-4" onClick={e => handleButton()}>
+                        { buttonState ? 'Saved' : 'Save'}
                     </button>
                 </div>
                 {
